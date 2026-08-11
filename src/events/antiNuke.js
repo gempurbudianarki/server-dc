@@ -32,7 +32,7 @@ async function handleChannelDelete(channel) {
         await member.roles.remove(sentinelRole, 'Anti-nuke triggered: Mass channel deletion');
       }
 
-      const auditCh = guild.channels.cache.find(c => c.name.includes('soc-audit-logs'));
+      const auditCh = guild.channels.cache.find(c => c.name.includes('log-audit-soc') || c.name.includes('audit'));
       if (auditCh) {
         const embed = new EmbedBuilder()
           .setTitle('🚨 EMERGENCY: ANTI-NUKE SAFEGUARD TRIGGERED')

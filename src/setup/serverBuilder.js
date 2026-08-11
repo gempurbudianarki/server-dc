@@ -15,36 +15,36 @@ const ROLES_SPEC = [
 
 const CATEGORIES_SPEC = [
   {
-    name: '╭━━⋙ ⚡ 𝖲𝖸𝖲𝖳𝖤𝖬 𝖦𝖠𝖳𝖤𝖶𝖠𝖸 ⋘━━╮',
-    keyword: 'SYSTEM',
+    name: '╭━━⋙ ⚡ 𝖦𝖤𝖱𝖡𝖠𝖭𝖦 // 𝖦𝖠𝖳𝖤𝖶𝖠𝖸 ⋘━━╮',
+    keyword: 'GERBANG',
     channels: [
-      { name: '✦・📜・terminal-rules', keyword: 'rules', type: ChannelType.GuildText, readonly: true },
-      { name: '✦・📢・announcements', keyword: 'announcements', type: ChannelType.GuildText, readonly: true },
-      { name: '✦・🔒・verification', keyword: 'verification', type: ChannelType.GuildText, readonly: true, special: 'verification' },
-      { name: '✦・👋・access-logs', keyword: 'access-logs', type: ChannelType.GuildText, readonly: true }
+      { name: '✦・📜・aturan-terminal', keyword: 'rules', type: ChannelType.GuildText, readonly: true },
+      { name: '✦・📢・pengumuman-resmi', keyword: 'announcements', type: ChannelType.GuildText, readonly: true },
+      { name: '✦・🔒・verifikasi-anggota', keyword: 'verification', type: ChannelType.GuildText, readonly: true, special: 'verification' },
+      { name: '✦・👋・log-akses-masuk', keyword: 'access-logs', type: ChannelType.GuildText, readonly: true }
     ]
   },
   {
-    name: '╭━━⋙ 🚨 𝖢𝖸𝖡𝖤𝖱 𝖨𝖭𝖳𝖤𝖫 ⋘━━╮',
+    name: '╭━━⋙ 🚨 𝖢𝖸𝖡𝖤𝖱 𝖨𝖭𝖳𝖤𝖫 // 𝖠𝖭𝖢𝖠𝖬𝖠𝖭 ⋘━━╮',
     keyword: 'INTEL',
     channels: [
-      { name: '✦・🗞️・threat-feeds', keyword: 'threat', type: ChannelType.GuildText, readonly: true },
-      { name: '✦・⚠️・cve-zero-days', keyword: 'cve', type: ChannelType.GuildText, readonly: true },
-      { name: '✦・📆・operation-events', keyword: 'events', type: ChannelType.GuildText, readonly: true }
+      { name: '✦・🗞️・feed-berita-cyber', keyword: 'threat', type: ChannelType.GuildText, readonly: true },
+      { name: '✦・⚠️・info-cve-zero-day', keyword: 'cve', type: ChannelType.GuildText, readonly: true },
+      { name: '✦・📆・agenda-kegiatan', keyword: 'events', type: ChannelType.GuildText, readonly: true }
     ]
   },
   {
-    name: '╭━━⋙ 💬 𝖭𝖤𝖳𝖶𝖮𝖱𝖪 𝖫𝖮𝖴𝖭𝖦𝖤 ⋘━━╮',
+    name: '╭━━⋙ 💬 𝖭𝖤𝖳𝖶𝖮𝖱𝖪 // 𝖫𝖮𝖴𝖭𝖦𝖤 𝖡𝖤𝖡𝖠𝖲 ⋘━━╮',
     keyword: 'NETWORK',
     channels: [
-      { name: '✦・💬・main-frame', keyword: 'main-frame', type: ChannelType.GuildText },
-      { name: '✦・❓・helpdesk-debug', keyword: 'helpdesk', type: ChannelType.GuildText },
-      { name: '✦・💡・research-showcase', keyword: 'research', type: ChannelType.GuildText },
-      { name: '✦・🤖・bot-console', keyword: 'bot', type: ChannelType.GuildText }
+      { name: '✦・💬・diskusi-bebas', keyword: 'main-frame', type: ChannelType.GuildText },
+      { name: '✦・❓・tanya-jawab-teknis', keyword: 'helpdesk', type: ChannelType.GuildText },
+      { name: '✦・💡・showcase-riset', keyword: 'research', type: ChannelType.GuildText },
+      { name: '✦・🤖・konsol-bot', keyword: 'bot', type: ChannelType.GuildText }
     ]
   },
   {
-    name: '╭━━⋙ 🛡️ 𝖳𝖠𝖢𝖳𝖨𝖢𝖠𝖫 𝖫𝖠𝖡𝖲 ⋘━━╮',
+    name: '╭━━⋙ 🛡️ 𝖳𝖠𝖢𝖳𝖨𝖢𝖠𝖫 𝖫𝖠𝖡𝖲 // 𝖣𝖮𝖬𝖠𝖨𝖭 ⋘━━╮',
     keyword: 'TACTICAL',
     channels: [
       { name: '✦・🌐・web-exploitation', keyword: 'web', type: ChannelType.GuildText },
@@ -56,57 +56,57 @@ const CATEGORIES_SPEC = [
     ]
   },
   {
-    name: '╭━━⋙ ⚔️ 𝖢𝖳𝖥 𝖠𝖱𝖤𝖭𝖠 ⋘━━╮',
+    name: '╭━━⋙ ⚔️ 𝖢𝖳𝖥 𝖠𝖱𝖤𝖭𝖠 // 𝖮𝖯𝖤𝖱𝖠𝖲𝖨 ⋘━━╮',
     keyword: 'CTF',
     channels: [
       { name: '✦・🚩・ctf-radar', keyword: 'radar', type: ChannelType.GuildText },
-      { name: '✦・🤝・squad-recruitment', keyword: 'recruitment', type: ChannelType.GuildText },
-      { name: '✦・📝・flag-writeups', keyword: 'writeups', type: ChannelType.GuildText },
-      { name: '✦・🧪・virtual-labs', keyword: 'labs', type: ChannelType.GuildText }
+      { name: '✦・🤝・rekrutmen-tim', keyword: 'recruitment', type: ChannelType.GuildText },
+      { name: '✦・📝・writeup-jawaban', keyword: 'writeups', type: ChannelType.GuildText },
+      { name: '✦・🧪・lab-virtual', keyword: 'labs', type: ChannelType.GuildText }
     ]
   },
   {
-    name: '╭━━⋙ 🎯 𝖡𝖮𝖴𝖭𝖳𝖸 𝖧𝖴𝖭𝖳𝖨𝖭𝖦 ⋘━━╮',
+    name: '╭━━⋙ 🎯 𝖡𝖮𝖴𝖭𝖳𝖸 // 𝖫𝖠𝖯𝖮𝖱𝖠𝖭 ⋘━━╮',
     keyword: 'BOUNTY',
     channels: [
-      { name: '✦・🎯・bounty-lounge', keyword: 'bounty-lounge', type: ChannelType.GuildText },
+      { name: '✦・🎯・diskusi-bounty', keyword: 'bounty-lounge', type: ChannelType.GuildText },
       { name: '✦・🏆・hall-of-fame', keyword: 'hall-of-fame', type: ChannelType.GuildText },
-      { name: '✦・📜・disclosures', keyword: 'disclosures', type: ChannelType.GuildText }
+      { name: '✦・📜・responsible-disclosure', keyword: 'disclosures', type: ChannelType.GuildText }
     ]
   },
   {
-    name: '╭━━⋙ 📚 𝖪𝖭𝖮𝖶𝖫𝖤𝖣𝖦𝖤 𝖵𝖠𝖴𝖫𝖳 ⋘━━╮',
-    keyword: 'KNOWLEDGE',
+    name: '╭━━⋙ 📚 𝖣𝖠𝖳𝖠𝖡𝖠𝖲𝖤 // 𝖪𝖭𝖮𝖶𝖫𝖤𝖣𝖦𝖤 ⋘━━╮',
+    keyword: 'DATABASE',
     channels: [
-      { name: '✦・🗺️・hacker-roadmaps', keyword: 'roadmaps', type: ChannelType.GuildText },
-      { name: '✦・🛠️・arsenal-tools', keyword: 'tools', type: ChannelType.GuildText },
+      { name: '✦・🗺️・panduan-belajar', keyword: 'roadmaps', type: ChannelType.GuildText },
+      { name: '✦・🛠️・berbagi-tools', keyword: 'tools', type: ChannelType.GuildText },
       { name: '✦・📄・cheatsheet-vault', keyword: 'cheatsheet', type: ChannelType.GuildText },
-      { name: '✦・💼・cyber-careers', keyword: 'careers', type: ChannelType.GuildText }
+      { name: '✦・💼・loker-cyber', keyword: 'careers', type: ChannelType.GuildText }
     ]
   },
   {
-    name: '╭━━⋙ 🎫 𝖧𝖤𝖫𝖯𝖣𝖤𝖲𝖪 𝖳𝖨𝖢𝖪𝖤𝖳 ⋘━━╮',
-    keyword: 'TICKET',
+    name: '╭━━⋙ 🎫 𝖧𝖤𝖫𝖯𝖣𝖤𝖲𝖪 // 𝖡𝖠𝖭𝖳𝖴𝖠𝖭 ⋘━━╮',
+    keyword: 'HELPDESK',
     channels: [
-      { name: '✦・🎟️・create-ticket', keyword: 'ticket', type: ChannelType.GuildText, readonly: true, special: 'ticket' }
+      { name: '✦・🎟️・buat-tiket', keyword: 'ticket', type: ChannelType.GuildText, readonly: true, special: 'ticket' }
     ]
   },
   {
-    name: '╭━━⋙ 👑 𝖱𝖮𝖮𝖳 𝖬𝖠𝖳𝖱𝖨𝖧 ⋘━━╮',
+    name: '╭━━⋙ 👑 𝖱𝖮𝖮𝖳 𝖬𝖠𝖳𝖱𝖨𝖧 // 𝖨𝖭𝖳𝖤𝖱𝖭 ⋘━━╮',
     keyword: 'ROOT',
     staffOnly: true,
     channels: [
-      { name: '✦・💬・root-lounge', keyword: 'root-lounge', type: ChannelType.GuildText },
-      { name: '✦・🚨・soc-audit-logs', keyword: 'audit-logs', type: ChannelType.GuildText },
-      { name: '✦・📂・transcript-vault', keyword: 'transcript', type: ChannelType.GuildText }
+      { name: '✦・💬・ruang-pengurus', keyword: 'root-lounge', type: ChannelType.GuildText },
+      { name: '✦・🚨・log-audit-soc', keyword: 'audit-logs', type: ChannelType.GuildText },
+      { name: '✦・📂・arsip-transkrip', keyword: 'transcript', type: ChannelType.GuildText }
     ]
   },
   {
-    name: '╭━━⋙ 🎧 𝖵𝖮𝖨𝖢𝖤 𝖢𝖮𝖬𝖬𝖲 ⋘━━╮',
+    name: '╭━━⋙ 🎧 𝖵𝖮𝖨𝖢𝖤 // 𝖢𝖮𝖬𝖬𝖲 ⋘━━╮',
     keyword: 'VOICE',
     channels: [
-      { name: '🔊 Comms Lounge', keyword: 'Lounge', type: ChannelType.GuildVoice },
-      { name: '🎙️ Briefing Room', keyword: 'Briefing', type: ChannelType.GuildVoice },
+      { name: '🔊 Ruang Obrolan Audio', keyword: 'Lounge', type: ChannelType.GuildVoice },
+      { name: '🎙️ Ruang Workshop', keyword: 'Briefing', type: ChannelType.GuildVoice },
       { name: '⚔️ CTF Tactical Room 1', keyword: 'Tactical Room 1', type: ChannelType.GuildVoice },
       { name: '⚔️ CTF Tactical Room 2', keyword: 'Tactical Room 2', type: ChannelType.GuildVoice }
     ]
@@ -117,7 +117,7 @@ client.once('ready', async () => {
   console.log(`🤖 Aesthetic Builder logged in as ${client.user.tag}`);
   try {
     const guild = await client.guilds.fetch(GUILD_ID);
-    console.log(`🔨 Updating server to Fancy Fonts for: ${guild.name} (${guild.id})`);
+    console.log(`🔨 Updating server to Indonesian Cyber Aesthetic for: ${guild.name} (${guild.id})`);
 
     const existingChannels = await guild.channels.fetch();
 
@@ -156,7 +156,7 @@ client.once('ready', async () => {
         console.log(`📂 Category created: ${category.name}`);
       } else {
         await category.setName(catSpec.name);
-        console.log(`📂 Category renamed to Fancy Font: ${category.name}`);
+        console.log(`📂 Category renamed to Indonesian Cyber: ${category.name}`);
       }
 
       for (const chSpec of catSpec.channels) {
@@ -172,7 +172,7 @@ client.once('ready', async () => {
             { id: sentinelRole.id, allow: [PermissionFlagsBits.ViewChannel] },
             { id: adminRole.id, allow: [PermissionFlagsBits.ViewChannel] }
           );
-        } else if (chSpec.name.includes('verification') || chSpec.name.includes('terminal-rules')) {
+        } else if (chSpec.name.includes('verifikasi') || chSpec.name.includes('aturan') || chSpec.name.includes('verification') || chSpec.name.includes('rules')) {
           permissionOverwrites.push(
             { id: everyoneRole.id, allow: [PermissionFlagsBits.ViewChannel], deny: [PermissionFlagsBits.SendMessages] }
           );
@@ -195,48 +195,48 @@ client.once('ready', async () => {
             parent: category.id,
             permissionOverwrites
           });
-          console.log(`  📜 Fancy Channel created: ${channel.name}`);
+          console.log(`  📜 Channel created: ${channel.name}`);
 
           if (chSpec.special === 'verification') {
             const embed = new EmbedBuilder()
-              .setTitle('🛡️ CYBERSECURITY COMMUNITY OF ACEH // VERIFICATION MATRIX')
-              .setDescription('```text\n[!] ACCESS RESTRICTED: UNVERIFIED OPERATOR DETECTED\n```\nSelamat datang di mainframe resmi **CCA (Cybersecurity Community of Aceh)**.\n\nUntuk mendapatkan akses penuh ke seluruh jaringan, channel, dan resource komunitas, silakan selesaikan verifikasi anti-bot dengan mengklik tombol di bawah ini.')
+              .setTitle('🛡️ CYBERSECURITY COMMUNITY OF ACEH // MATRIKS VERIFIKASI')
+              .setDescription('```text\n[!] AKSES DIBATASI: OPERATOR BELUM TERVERIFIKASI DETECTED\n```\nSelamat datang di mainframe resmi **CCA (Cybersecurity Community of Aceh)**.\n\nUntuk mendapatkan akses penuh ke seluruh jaringan, channel obrolan, dan resource komunitas, silakan selesaikan verifikasi anti-bot dengan mengklik tombol di bawah ini.')
               .setColor(0x00F0FF)
-              .setFooter({ text: 'CCA Security System v2.0 • Encrypted Protocol' });
+              .setFooter({ text: 'Sistem Keamanan CCA v2.0 • Protokol Terenkripsi' });
 
             const btn = new ActionRowBuilder().addComponents(
               new ButtonBuilder()
                 .setCustomId('btn_verify')
-                .setLabel('⚡ AUTHENTICATE OPERATOR')
+                .setLabel('⚡ OTENTIKASI OPERATOR (VERIFIKASI)')
                 .setStyle(ButtonStyle.Success)
             );
             await channel.send({ embeds: [embed], components: [btn] });
           } else if (chSpec.special === 'ticket') {
             const embed = new EmbedBuilder()
-              .setTitle('🎟️ CCA HELPDESK // PRIVATE SUPPORT TICKET')
-              .setDescription('```text\n[+] SECURE DISPATCH TERMINAL\n```\nButuh bantuan teknis, laporan insiden, atau konsultasi khusus dengan Tim Pengurus & SOC Team CCA?\n\nKlik tombol **OPEN SUPPORT TICKET** di bawah untuk membuka saluran terenkripsi private bersama Tim Sentinel.')
+              .setTitle('🎟️ CCA HELPDESK // LOKET BANTUAN PRIVAT')
+              .setDescription('```text\n[+] TERMINAL LAYANAN BANTUAN RESMI\n```\nButuh bantuan teknis, laporan insiden keamanan, atau konsultasi khusus dengan Tim Pengurus CCA?\n\nKlik tombol **BUAT TIKET BANTUAN** di bawah untuk membuka saluran diskusi terenkripsi privat bersama Tim Sentinel.')
               .setColor(0x0066FF)
-              .setFooter({ text: 'CCA Dispatch System • SOC Team Active' });
+              .setFooter({ text: 'Sistem Layanan CCA • SOC Team Aktif' });
 
             const btn = new ActionRowBuilder().addComponents(
               new ButtonBuilder()
                 .setCustomId('btn_open_ticket')
-                .setLabel('🎟️ OPEN SUPPORT TICKET')
+                .setLabel('🎟️ BUAT TIKET BANTUAN')
                 .setStyle(ButtonStyle.Primary)
             );
             await channel.send({ embeds: [embed], components: [btn] });
           }
         } else {
           await channel.edit({ name: chSpec.name, parent: category.id, permissionOverwrites });
-          console.log(`  📜 Fancy Channel renamed: ${channel.name}`);
+          console.log(`  📜 Channel renamed: ${channel.name}`);
         }
       }
     }
 
-    console.log('✅ Fancy Unicode Font Server Builder Completed!');
+    console.log('✅ Indonesian Cyber Server Builder Completed!');
     process.exit(0);
   } catch (err) {
-    console.error('❌ Error building fancy server:', err);
+    console.error('❌ Error building indonesian server:', err);
     process.exit(1);
   }
 });

@@ -11,7 +11,7 @@ const FEEDS = [
 async function checkCyberNewsFeed(client, guildId) {
   try {
     const guild = await client.guilds.fetch(guildId);
-    const newsCh = guild.channels.cache.find(c => c.name.includes('threat-feeds'));
+    const newsCh = guild.channels.cache.find(c => c.name.includes('feed-berita-cyber') || c.name.includes('threat'));
     if (!newsCh) return;
 
     for (const feedConfig of FEEDS) {

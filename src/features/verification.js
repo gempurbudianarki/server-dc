@@ -66,29 +66,29 @@ async function handleVerificationModal(interaction) {
     db.run('INSERT OR REPLACE INTO verifications (user_id) VALUES (?)', [userId]);
 
     // Send greeting to access logs lobby
-    const welcomeCh = guild.channels.cache.find(c => c.name.includes('access-logs'));
+    const welcomeCh = guild.channels.cache.find(c => c.name.includes('log-akses-masuk') || c.name.includes('access-logs'));
     if (welcomeCh) {
-      const rulesCh = guild.channels.cache.find(c => c.name.includes('terminal-rules'));
-      const mainFrameCh = guild.channels.cache.find(c => c.name.includes('main-frame'));
-      const threatCh = guild.channels.cache.find(c => c.name.includes('threat-feeds'));
-      const ticketCh = guild.channels.cache.find(c => c.name.includes('create-ticket'));
+      const rulesCh = guild.channels.cache.find(c => c.name.includes('aturan-terminal') || c.name.includes('rules'));
+      const mainFrameCh = guild.channels.cache.find(c => c.name.includes('diskusi-bebas') || c.name.includes('main-frame'));
+      const threatCh = guild.channels.cache.find(c => c.name.includes('feed-berita-cyber') || c.name.includes('threat'));
+      const ticketCh = guild.channels.cache.find(c => c.name.includes('buat-tiket') || c.name.includes('ticket'));
 
       const avatarUrl = interaction.user.displayAvatarURL({ extension: 'png', size: 256 });
 
       const embed = new EmbedBuilder()
-        .setTitle('⚡ [SYSTEM] NEW OPERATOR AUTHENTICATED')
+        .setTitle('⚡ [SYSTEM] OPERATOR BARU TERAUTENTIKASI')
         .setDescription(
-          `\`\`\`text\n[+] IDENTITY VERIFIED: SUCCESS\n[+] SECURITY CLEARANCE: LEVEL 1 GRANTED\n\`\`\`\n` +
+          `\`\`\`text\n[+] IDENTITAS TERVERIFIKASI: SUKSES\n[+] OTORISASI KEAMANAN: LEVEL 1 DIBERIKAN\n\`\`\`\n` +
           `Selamat datang **<@${userId}>** (\`${interaction.user.tag}\`) di **CYBERSECURITY COMMUNITY OF ACEH (CCA)**! 🛡️⚡\n\n` +
           `Wadah resmi komunitas, praktisi, dan peneliti Keamanan Siber Provinsi Aceh.`
         )
         .addFields(
-          { name: '🆔 OPERATOR IDENTITY', value: `> **User:** <@${userId}>\n> **Clearance:** \`🟢 [CCA] Verified Member\`\n> **Status:** \`ACTIVE / ONLINE\``, inline: false },
-          { name: '📍 QUICK NAVIGATION PROTOCOL', value: `📜 **Aturan Server:** ${rulesCh ? `<#${rulesCh.id}>` : '#terminal-rules'}\n💬 **Diskusi Utama:** ${mainFrameCh ? `<#${mainFrameCh.id}>` : '#main-frame'}\n🗞️ **Intel & Cyber News:** ${threatCh ? `<#${threatCh.id}>` : '#threat-feeds'}\n🎟️ **Bantuan Helpdesk:** ${ticketCh ? `<#${ticketCh.id}>` : '#create-ticket'}`, inline: false }
+          { name: '🆔 IDENTITAS OPERATOR', value: `> **Member:** <@${userId}>\n> **Status:** \`🟢 [CCA] Verified Member\`\n> **Koneksi:** \`AKTIF / ONLINE\``, inline: false },
+          { name: '📍 PROTOKOL NAVIGASI CEPAT', value: `📜 **Aturan Server:** ${rulesCh ? `<#${rulesCh.id}>` : '#aturan-terminal'}\n💬 **Diskusi Bebas:** ${mainFrameCh ? `<#${mainFrameCh.id}>` : '#diskusi-bebas'}\n🗞️ **Berita Cyber Intel:** ${threatCh ? `<#${threatCh.id}>` : '#feed-berita-cyber'}\n🎟️ **Bantuan Helpdesk:** ${ticketCh ? `<#${ticketCh.id}>` : '#buat-tiket'}`, inline: false }
         )
         .setThumbnail(avatarUrl)
         .setColor(0x00F0FF)
-        .setFooter({ text: 'CCA Security System v2.0 • Encrypted Protocol' })
+        .setFooter({ text: 'Sistem Keamanan CCA v2.0 • Protokol Terenkripsi' })
         .setTimestamp();
 
       await welcomeCh.send({ content: `👋 Selamat datang Operator <@${userId}>!`, embeds: [embed] });

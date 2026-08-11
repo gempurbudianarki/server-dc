@@ -50,7 +50,7 @@ async function handleCloseTicketButton(interaction) {
     db.run('UPDATE tickets SET status = ? WHERE thread_id = ?', ['CLOSED', thread.id]);
     
     // Log to transcript channel
-    const transcriptCh = interaction.guild.channels.cache.find(c => c.name.includes('transcript-vault'));
+    const transcriptCh = interaction.guild.channels.cache.find(c => c.name.includes('arsip-transkrip') || c.name.includes('transcript'));
     if (transcriptCh) {
       const embed = new EmbedBuilder()
         .setTitle(`📂 Ticket Transcript Archived: ${thread.name}`)
