@@ -10,63 +10,63 @@ const parser = new Parser({
 });
 
 const BOUNTY_FEEDS = [
-  { name: 'Bug Bounty Writeups & Writeups', url: 'https://medium.com/feed/tag/bug-bounty' },
+  { name: 'Bug Bounty Writeups', url: 'https://medium.com/feed/tag/bug-bounty' },
   { name: 'Full Disclosure Vulnerabilities', url: 'https://seclists.org/rss/fulldisclosure.rss' }
 ];
 
-const STARTER_BOUNTY_PROGRAMS = [
+const FEATURED_BOUNTIES = [
   {
-    guid: 'starter_google_vrp',
-    title: '🌐 GOOGLE VULNERABILITY REWARD PROGRAM (VRP)',
-    company: 'Google / Android / Chromium',
-    scope: '*.google.com, *.youtube.com, Android OS, Chrome',
-    payout: '💰 $500 - $31,337+ USD (Hingga Rp 500 Juta!)',
-    severity: 'CRITICAL / HIGH / MEDIUM',
+    guid: 'featured_google_vrp_v2',
+    title: 'GOOGLE VULNERABILITY REWARD PROGRAM (VRP)',
+    company: 'Google LLC / Android / Chromium',
+    scope: '`*.google.com` • `*.youtube.com` • `Android OS` • `Chrome`',
+    payout: '💰 **$500 – $31,337+ USD** *(Hingga Rp 500 Juta+ per Bug!)*',
+    severity: '🔴 **CRITICAL / HIGH**',
     link: 'https://bughunters.google.com/',
-    desc: 'Program bug bounty resmi Google untuk menemukan kerentanan RCE, SQLi, Sandbox Escape, dan Authentication Bypass pada seluruh ekosistem layanan Google.'
+    desc: 'Program resmi Google untuk peretasan etis (*White-Hat*). Hadiah uang tunai diberikan untuk temuan RCE, SQLi, Sandbox Escape, dan Auth Bypass.'
   },
   {
-    guid: 'starter_meta_bounty',
-    title: '🌐 META BUG BOUNTY PROGRAM',
+    guid: 'featured_meta_bounty_v2',
+    title: 'META WHITEHAT BUG BOUNTY PROGRAM',
     company: 'Meta (Facebook / Instagram / WhatsApp)',
-    scope: '*.facebook.com, *.instagram.com, WhatsApp, Oculus',
-    payout: '💰 $500 - $50,000+ USD (Tanpa Batas Atas!)',
-    severity: 'CRITICAL / HIGH',
+    scope: '`*.facebook.com` • `*.instagram.com` • `WhatsApp` • `Oculus`',
+    payout: '💰 **$500 – $50,000+ USD** *(Tanpa Batas Maksimum!)*',
+    severity: '🔴 **CRITICAL / HIGH**',
     link: 'https://www.facebook.com/whitehat',
-    desc: 'Program Bug Bounty Meta memberikan apresiasi finansial bagi peneliti yang melaporkan kerentanan Account Takeover, IDOR, RCE, dan Data Leak.'
+    desc: 'Bounty reward tertinggi untuk penemuan celah Account Takeover (ATO), Zero-Day IDOR, Remote Code Execution, dan kebocoran data sensitif.'
   },
   {
-    guid: 'starter_github_bounty',
-    title: '🌐 GITHUB SECURITY BUG BOUNTY',
-    company: 'GitHub / Microsoft',
-    scope: 'github.com, GitHub Enterprise, Actions, API',
-    payout: '💰 $617 - $30,000+ USD / Bug',
-    severity: 'CRITICAL / HIGH',
+    guid: 'featured_github_bounty_v2',
+    title: 'GITHUB SECURITY BUG BOUNTY',
+    company: 'GitHub / Microsoft Corp.',
+    scope: '`github.com` • `GitHub Enterprise` • `Actions API`',
+    payout: '💰 **$617 – $30,000+ USD** / Valid Report',
+    severity: '🟣 **HIGH / MEDIUM**',
     link: 'https://bounty.github.com/',
-    desc: 'Temukan kerentanan pada platform GitHub Actions, Enterprise Server, dan API resmi GitHub untuk memenangkan reward uang tunai.'
+    desc: 'Lakukan pengujian keamanan pada platform pengembangan perangkat lunak terbesar di dunia dan dapatkan reward bayaran tunai.'
   }
 ];
 
-async function seedInitialBountyPosts(guild, bountyCh) {
-  for (const prog of STARTER_BOUNTY_PROGRAMS) {
+async function seedUltraModernBounties(bountyCh) {
+  for (const prog of FEATURED_BOUNTIES) {
     db.get('SELECT guid FROM bounty_posted WHERE guid = ?', [prog.guid], async (err, row) => {
-      if (err || row) return; // Skip if already posted
+      if (err || row) return;
 
       const embed = new EmbedBuilder()
-        .setTitle(`🎯 [FEATURED BUG BOUNTY] ${prog.title}`)
+        .setTitle(`⚡ 𝖡𝖴𝖦 𝖡𝖮𝖴𝖭𝖳𝖸 𝖨𝖭𝖳𝖤𝖫 // ${prog.title}`)
         .setURL(prog.link)
         .setDescription(
-          `\`\`\`text\n[+] OFFICIAL BOUNTY PROGRAM INFO\n[+] PAYOUT REWARD: ACTIVE\n\`\`\`\n` +
-          `${prog.desc}`
+          `\`\`\`text\n[+] PROGRAM IDENTITY : ${prog.company}\n[+] SECURITY BOUNTY   : ACTIVE & CONFIRMED\n\`\`\`\n` +
+          `**📌 Deskripsi Program:**\n${prog.desc}`
         )
         .addFields(
-          { name: '🏢 PERUSAHAAN TARGET', value: `> \`${prog.company}\``, inline: true },
-          { name: '🎯 REKAP PAYOUT / REWARD', value: `> **${prog.payout}**`, inline: false },
-          { name: '🌐 TARGET SCOPE', value: `\`${prog.scope}\``, inline: false },
-          { name: '🔗 RESOURCE & DIRECTORY', value: `[Buka Deskripsi & Daftarkan Diri di ${prog.company}](${prog.link})`, inline: false }
+          { name: '💵 EKSPEKTASI PAYOUT / REWARD', value: `> ${prog.payout}`, inline: false },
+          { name: '🌐 TARGET SCOPE', value: `> ${prog.scope}`, inline: false },
+          { name: '🚨 TINGKAT SEVERITY', value: `> ${prog.severity}`, inline: true },
+          { name: '🔗 RESOURCE ACCESS', value: `👉 [**KLIK DI SINI UNTUK BUKA DIREKTORI ${prog.title}**](${prog.link})`, inline: false }
         )
         .setColor(0xFFD700)
-        .setFooter({ text: 'CCA Bug Bounty Feed System • Verified Payout Info' })
+        .setFooter({ text: 'CCA Cyber Intel Matrix v2.0 • Premium Bounty Feed' })
         .setTimestamp();
 
       await bountyCh.send({ embeds: [embed] }).catch(() => {});
@@ -81,10 +81,8 @@ async function checkBountyFeed(client, guildId) {
     const bountyCh = guild.channels.cache.find(c => c.name.includes('info-bug-bounty'));
     if (!bountyCh) return;
 
-    // First seed featured starter programs
-    await seedInitialBountyPosts(guild, bountyCh);
+    await seedUltraModernBounties(bountyCh);
 
-    // Fetch RSS updates
     for (const feedConfig of BOUNTY_FEEDS) {
       try {
         const feed = await parser.parseURL(feedConfig.url);
@@ -94,22 +92,23 @@ async function checkBountyFeed(client, guildId) {
           db.get('SELECT guid FROM bounty_posted WHERE guid = ?', [guid], async (err, row) => {
             if (err || row) return;
 
-            const titleText = item.title || 'Informasi Celah Security & Bounty';
-            const snippet = item.contentSnippet ? item.contentSnippet.substring(0, 250) : 'Tinjau analisis riset dan informasi pembayaran celah keamanan terbaru.';
+            const titleText = item.title || 'Informasi Vulnerability & Writeup Bug Bounty';
+            const snippet = item.contentSnippet ? item.contentSnippet.substring(0, 220).replace(/\n/g, ' ') : 'Klik tautan untuk membaca analisis eksploitasi selengkapnya.';
 
             const embed = new EmbedBuilder()
-              .setTitle(`🎯 [${feedConfig.name}] ${titleText}`)
+              .setTitle(`🚨 𝖢𝖸𝖡𝖤𝖱 𝖨𝖭𝖳𝖤𝖫 // ${titleText.toUpperCase()}`)
               .setURL(item.link)
               .setDescription(
-                `\`\`\`text\n[+] NEW BUG DISCLOSURE / WRITEUP DETECTED\n\`\`\`\n` +
-                `${snippet}...`
+                `\`\`\`text\n[+] TYPE   : VULNERABILITY DISCLOSURE / WRITEUP\n[+] SOURCE : ${feedConfig.name.toUpperCase()}\n\`\`\`\n` +
+                `**📝 Ringkasan Analisis Teknis:**\n> ${snippet}...`
               )
               .addFields(
-                { name: '💰 CATEGORY & SOURCE', value: `> **Source:** \`${feedConfig.name}\`\n> **Type:** \`Writeup / Disclosure\``, inline: false },
-                { name: '🔗 DETAIL LINK', value: `[Baca Rincian Riset & Penjelasannya](${item.link})`, inline: false }
+                { name: '📡 KATEGORI FEED', value: `\`${feedConfig.name}\``, inline: true },
+                { name: '⚡ STATUS EXPLOIT', value: `\`DISCLOSED / PROOF OF CONCEPT\``, inline: true },
+                { name: '🔗 ACCESS PROTOCOL', value: `👉 [**BACA METODE EKSPLOIT & TEKNIK SELENGKAPNYA**](${item.link})`, inline: false }
               )
               .setColor(0x00F0FF)
-              .setFooter({ text: 'CCA Bug Bounty Feed • Keep Learning & Hacking' })
+              .setFooter({ text: 'CCA Cyber Intel Matrix v2.0 • Encrypted Feed' })
               .setTimestamp(new Date(item.pubDate || Date.now()));
 
             await bountyCh.send({ embeds: [embed] }).catch(() => {});
@@ -117,7 +116,7 @@ async function checkBountyFeed(client, guildId) {
           });
         }
       } catch (feedErr) {
-        console.error(`⚠️ Bounty RSS fetch error (${feedConfig.name}):`, feedErr.message);
+        console.error(`⚠️ Bounty RSS error (${feedConfig.name}):`, feedErr.message);
       }
     }
   } catch (err) {
@@ -126,9 +125,7 @@ async function checkBountyFeed(client, guildId) {
 }
 
 function startBountyFeedService(client, guildId) {
-  // Initial check on startup after 3s delay
-  setTimeout(() => checkBountyFeed(client, guildId), 3000);
-  // Schedule check every 60 minutes
+  setTimeout(() => checkBountyFeed(client, guildId), 2000);
   setInterval(() => checkBountyFeed(client, guildId), 3600000);
 }
 
