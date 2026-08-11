@@ -50,10 +50,19 @@ function initDatabase() {
           level INTEGER DEFAULT 1,
           last_xp INTEGER DEFAULT 0
         )
+      `, (err) => { if (err) reject(err); });
+
+      // Table for Bounty Feed deduplication
+      db.run(`
+        CREATE TABLE IF NOT EXISTS bounty_posted (
+          guid TEXT PRIMARY KEY,
+          title TEXT NOT NULL,
+          posted_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        )
       `, (err) => {
         if (err) reject(err);
         else {
-          console.log("✅ SQLite database initialized successfully with levels table");
+          console.log("✅ SQLite database initialized successfully with bounty_posted table");
           resolve(db);
         }
       });

@@ -69,6 +69,7 @@ const CATEGORIES_SPEC = [
     name: '╭━━⋙ 🎯 𝖡𝖮𝖴𝖭𝖳𝖸 // 𝖫𝖠𝖯𝖮𝖱𝖠𝖭 ⋘━━╮',
     keyword: 'BOUNTY',
     channels: [
+      { name: '✦・🗞️・info-bug-bounty', keyword: 'info-bug-bounty', type: ChannelType.GuildText, readonly: true },
       { name: '✦・🎯・diskusi-bounty', keyword: 'bounty-lounge', type: ChannelType.GuildText },
       { name: '✦・🏆・hall-of-fame', keyword: 'hall-of-fame', type: ChannelType.GuildText },
       { name: '✦・📜・responsible-disclosure', keyword: 'disclosures', type: ChannelType.GuildText }

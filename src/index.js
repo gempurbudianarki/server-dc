@@ -3,6 +3,7 @@ const { BOT_TOKEN, GUILD_ID, CLIENT_ID } = require('./config');
 const { initDatabase } = require('./db/database');
 const interactionCreate = require('./events/interactionCreate');
 const { startNewsFeedService } = require('./features/newsFeed');
+const { startBountyFeedService } = require('./features/bountyFeed');
 const { handleChannelDelete } = require('./events/antiNuke');
 const { handleMessageXP } = require('./features/leveling');
 
@@ -39,6 +40,7 @@ client.once('ready', async () => {
   console.log(`⚡ CCA Discord Bot is online as ${client.user.tag}`);
   await registerSlashCommands();
   startNewsFeedService(client, GUILD_ID);
+  startBountyFeedService(client, GUILD_ID);
 });
 
 client.on('interactionCreate', interactionCreate);
