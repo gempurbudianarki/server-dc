@@ -18,7 +18,7 @@ const CATEGORIES_SPEC = [
     name: '╭━━⋙ ⚡ 𝖦𝖤𝖱𝖡𝖠𝖭𝖦 // 𝖦𝖠𝖳𝖤𝖶𝖠𝖸 ⋘━━╮',
     keyword: 'GERBANG',
     channels: [
-      { name: '✦・📜・aturan-terminal', keyword: 'rules', type: ChannelType.GuildText, readonly: true },
+      { name: '✦・📜・aturan-terminal', keyword: 'rules', type: ChannelType.GuildText, readonly: true, special: 'rules' },
       { name: '✦・📢・pengumuman-resmi', keyword: 'announcements', type: ChannelType.GuildText, readonly: true },
       { name: '✦・🔒・verifikasi-anggota', keyword: 'verification', type: ChannelType.GuildText, readonly: true, special: 'verification' },
       { name: '✦・👋・log-akses-masuk', keyword: 'access-logs', type: ChannelType.GuildText, readonly: true }
