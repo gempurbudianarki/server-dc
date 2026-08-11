@@ -1,0 +1,16 @@
+{
+  "name": "cca-diskot-bot",
+  "version": "1.0.0",
+  "description": "Cybersecurity Community of Aceh Discord Bot & Server Builder",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "setup": "node src/setup/serverBuilder.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.4.5",
+    "rss-parser": "^3.13.0",
+    "sqlite3": "^5.1.7"
+  }
+}
